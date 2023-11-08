@@ -3,6 +3,7 @@ import App from "./App";
 import { Shop } from "./Shop";
 import { Cart } from "./Cart";
 import { HomeBar } from "./HomeBar";
+import { Item } from "./Item";
 
 //need to construct the router in a parent/children way so the HomeBar always shows
 const Router = () => {
@@ -18,6 +19,10 @@ const Router = () => {
             {
                 path: "/shop",
                 element: <Shop />
+            },
+            {
+                path: "/shop/:id",
+                element: <Item />
             },
             {
                 path: "/cart",

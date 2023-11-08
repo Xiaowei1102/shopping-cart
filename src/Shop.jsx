@@ -10,12 +10,14 @@ export function Shop () {
 
     return (
     <>
-        <div className='items'>This is a place holder for shopping items</div>
+
         <div className='shoppingItems'>
             {data.map(item => {
                 return (
-                    <div key={item.id}>
-                        <img src={item.image} alt={item.title} />
+                    <div  key={item.id}>
+                        <Link to={`/shop/${item.id}`} state={{data}}>
+                            <img src={item.image} alt={item.title} />
+                        </Link>
                         <div className='itemTitle'>{item.title}</div>
                         <div className='rating'>{item.rating.rate}({item.rating.count})</div>
                         <div className='price'>${item.price}</div>
