@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useData = (url) => {
+export const useData = (url) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ const useData = (url) => {
           }
           return response.json();
         })
-        .then((response) => setImageURL(response[0].url))
+        .then((response) => setData(response))
         .catch((error) => setError(error))
         .finally(() => setLoading(false));
     }, []);

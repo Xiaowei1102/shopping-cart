@@ -7,7 +7,10 @@ import { HomeBar } from './HomeBar'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HomeBar></HomeBar>
-    <Router />
+    {/* if you bring Homebar outside of the Router element, react will report error bcz HomeBar contains links that used in the router */}
+    <Router>
+      
+    </Router>
+    
   </React.StrictMode>,
 )
