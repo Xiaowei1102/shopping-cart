@@ -1,17 +1,51 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
-import {useData} from "./useData"
+//import {useData} from "./useData"
 //import { Styled, styled } from 'styled-components';
 
 export function HomeBar () {
+    const [addedItems, setAddedItem] = useState(1);
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const url = 'https://fakestoreapi.com/products?limit=5';
+
+    useEffect(() => {
+        if (data !== null) return;
+        fetch(url)
+        .then((response) => {
+          if (response.status >= 400) {
+            throw new Error("server error");
+          }
+          return response.json();
+        })
+        .then((response) => setData(response))
+        .catch((error) => setError(error))
+        .finally(() => setLoading(false));
+    }, []);
+    console.log(data);
+
+    if (error) return <p>A network error was encountered</p>;
+    if (loading) return <p>Loading...</p>;
+    // const [fetchedData, setFetchedData] = useState(null);
+    // if (fetchedData === null) {
+    //     const url = 'https://fakestoreapi.com/products?limit=5';
+    //     const {data, error, loading} = useData(url);
+        
+    //     setFetchedData(data);
+    //     console.log(fetchedData)
+    //     if (error) return <p>A network error was encountered</p>;
+    //     if (loading) return <p>Loading...</p>;
+    // }
+   // console.log(data);
 
     return (
         <div className='navBar'>
             <div className='title'>Some title here</div>
             <div className='navBarLinks'>
                 <Link to="/">Home</Link>
-                <Link to="/shop">Shop</Link>
-                <Link to="/cart">Cart</Link>
+                <Link to="/shop" state={{data}}>Shop</Link>
+                <Link to="/cart">Cart {addedItems === 0 ? null : `(${addedItems})`}</Link>
             </div>
       </div>
     )

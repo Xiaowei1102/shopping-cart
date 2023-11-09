@@ -1,12 +1,15 @@
 import { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {useData} from "./useData"
 
 export function Shop () {
-    const {data, error, loading} = useData('https://fakestoreapi.com/products?limit=5')
-    console.log(data)
-    if (error) return <p>A network error was encountered</p>;
-    if (loading) return <p>Loading...</p>;
+    // const url = 'https://fakestoreapi.com/products?limit=5';
+    // const {data, error, loading} = useData(url);
+    // console.log(data)
+    // if (error) return <p>A network error was encountered</p>;
+    // if (loading) return <p>Loading...</p>;
+    const location = useLocation();
+    const {data} = location.state;
 
     return (
     <>
@@ -15,6 +18,7 @@ export function Shop () {
             {data.map(item => {
                 return (
                     <div  key={item.id}>
+                        {/* pass state through Link */}
                         <Link to={`/shop/${item.id}`} state={{data}}>
                             <img src={item.image} alt={item.title} />
                         </Link>
