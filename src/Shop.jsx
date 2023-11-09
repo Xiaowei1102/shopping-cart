@@ -9,7 +9,9 @@ export function Shop () {
     // if (error) return <p>A network error was encountered</p>;
     // if (loading) return <p>Loading...</p>;
     const location = useLocation();
-    const {data} = location.state;
+    console.log(location);
+    const {data, addedItems} = location.state;
+    console.log(addedItems);
 
     return (
     <>

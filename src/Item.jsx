@@ -3,11 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import {useData} from "./useData"
 import { useParams } from 'react-router-dom';
 
-export function Item() {
+export function Item({addedItems, setAddedItems}) {
     const {id} = useParams();
      const location = useLocation();
      const {data} = location.state;
      const item = data[id - 1];
+     
 
     return (
         <div className='singleItem'>
@@ -16,6 +17,7 @@ export function Item() {
             <div className='rating'>{item.rating.rate}({item.rating.count})</div>
             <div className='description'>{item.description}</div>
             <div className='price'>${item.price}</div>
+            <button className='addintItem' onClick={() => setAddedItems(addedItems + 1)}>Add to bag</button>
         </div>
     )
 }
