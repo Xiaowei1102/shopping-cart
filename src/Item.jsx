@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import {useData} from "./useData"
 import { useParams } from 'react-router-dom';
 
-export function Item({addedItems, setAddedItems}) {
+export function Item({addedItems, setAddedItems, cartList, setCartList}) {
     const {id} = useParams();
      const location = useLocation();
      const {data} = location.state;
@@ -17,7 +17,22 @@ export function Item({addedItems, setAddedItems}) {
             <div className='rating'>{item.rating.rate}({item.rating.count})</div>
             <div className='description'>{item.description}</div>
             <div className='price'>${item.price}</div>
-            <button className='addintItem' onClick={() => setAddedItems(addedItems + 1)}>Add to bag</button>
+            <button className='addintItem' onClick={() => {
+                setAddedItems(addedItems + 1);
+                if(cartList.has(item.id)) {
+                    setCartList(()=> {
+                        let copyList = new Map(cartList);
+                        copyList.set(item.id, copyList.get(item.id) + 1);
+                        return copyList;
+                    }) 
+                } else {
+                    setCartList(()=> {
+                        let copyList = new Map(cartList);
+                        copyList.set(item.id, 1);
+                        return copyList;
+                    })
+                }
+                }}>Add to bag</button>
         </div>
     )
 }

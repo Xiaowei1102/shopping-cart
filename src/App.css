@@ -97,3 +97,50 @@ img {
   color: rgb(104, 103, 103);
   font-size: medium;
 }
+
+.cartItems {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.singleItem {
+  padding: 15px;
+  background-color: aliceblue;
+  display: flex;
+}
+
+.itemInfo {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttonAndSub{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+}
+
+.buttons {
+  flex: 1 1 auto;
+}
+
+.subTotal {
+  font-size: 25px;
+}
+
+.total {
+  display: flex;
+  justify-content: end;
+  font-size: 30px;
+  
+}
+
+.checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

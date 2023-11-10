@@ -13,6 +13,8 @@ const Router = () => {
     console.log(addedItems)
     const url = 'https://fakestoreapi.com/products?limit=5';
     const {data, error, loading} = useData(url);
+    const [cartList, setCartList] = useState(new Map());
+    console.log(cartList);
 
   const router = createBrowserRouter([
     {
@@ -29,11 +31,11 @@ const Router = () => {
             },
             {
                 path: "/shop/:id",
-                element: <Item addedItems={addedItems} setAddedItems= {setAddedItems}/>
+                element: <Item addedItems={addedItems} setAddedItems= {setAddedItems} cartList={cartList} setCartList={setCartList}/>
             },
             {
                 path: "/cart",
-                element: <Cart />
+                element: <Cart addedItems={addedItems} setAddedItems= {setAddedItems} cartList={cartList} setCartList={setCartList} data={data}/>
             }
         ]
     },
@@ -44,7 +46,7 @@ const Router = () => {
     return (
         <div>
             <HomeBar addedItems={addedItems} setAddedItems= {setAddedItems} data={data} error={error} loading={loading}></HomeBar>
-            <Outlet></Outlet>
+            <Outlet ></Outlet>
         </div>
     )
   }
