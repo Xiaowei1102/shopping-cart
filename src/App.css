@@ -68,6 +68,50 @@ body {
 
 }
 
+.homePageTitle{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  padding: 20px;
+  background-color: aquamarine;
+  font-size: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.menTitle, 
+.womenTitle {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.homeImages {
+  padding: 30px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.homeImages > img {
+  height: 600px;
+  width: 500px;
+}
+
+.footer {
+  padding-left: 20px;
+  height: 40px;
+  background-color: rgb(128, 91, 50);
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .shoppingItems {
   padding: 20px;
   display: flex;
