@@ -65,7 +65,10 @@ body {
   display: flex;
   gap: 30px;
   align-items: center;
+}
 
+.navBarLinks > a{
+  text-decoration: none;
 }
 
 .homePageTitle{
@@ -142,6 +145,13 @@ img {
   font-size: medium;
 }
 
+.currItem {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .cartItems {
   padding: 30px;
   display: flex;
@@ -187,4 +197,23 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.checkoutButton {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: oblique;
+}
+
+button{
+  background-color: rgb(141, 180, 214);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(184, 134, 68);
 }

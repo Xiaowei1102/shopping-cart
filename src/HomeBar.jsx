@@ -41,7 +41,7 @@ export function HomeBar ({addedItems, setAddedItems, data, error, loading}) {
    //const stateData = {data, addedItems, setAddedItems};
     return (
         <div className='navBar'>
-            <div className='title'>Some title here</div>
+            <div className='title'>Your Go-To Store</div>
             <div className='navBarLinks'>
                 <Link to="/">Home</Link>
                 <Link to="/shop" state={{data, addedItems} }>Shop</Link>

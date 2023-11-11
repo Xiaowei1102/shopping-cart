@@ -11,7 +11,7 @@ import { useData } from "./useData";
 const Router = () => {
     const [addedItems, setAddedItems] = useState(0);
     console.log(addedItems)
-    const url = 'https://fakestoreapi.com/products?limit=5';
+    const url = 'https://fakestoreapi.com/products';
     const {data, error, loading} = useData(url);
     const [cartList, setCartList] = useState(new Map());
     console.log(cartList);

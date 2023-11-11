@@ -10,7 +10,7 @@ export function Cart ({addedItems, setAddedItems, cartList, setCartList, data}) 
     function handleReduce(e) {
       let copyList = new Map(cartList);
       const targetId = Number(e.target.id);
-      if (copyList.get(targetId) > 0) {
+      if (copyList.get(targetId) > 1) {
         copyList.set(targetId, copyList.get(targetId) - 1)
         setAddedItems(addedItems - 1);
       } else {
@@ -63,7 +63,7 @@ export function Cart ({addedItems, setAddedItems, cartList, setCartList, data}) 
         }
         <div className='total'>Total: ${totalAmount}</div>
         <div className='checkout'>
-          <button>CHECKOUT</button>
+          <button className='checkoutButton'>CHECKOUT</button>
         </div>
        
 
