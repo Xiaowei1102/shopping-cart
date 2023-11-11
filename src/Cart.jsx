@@ -15,6 +15,7 @@ export function Cart ({addedItems, setAddedItems, cartList, setCartList, data}) 
         setAddedItems(addedItems - 1);
       } else {
         copyList.delete(targetId);
+        setAddedItems(addedItems - 1);
       }
       setCartList(copyList);
     }
